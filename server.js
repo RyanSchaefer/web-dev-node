@@ -4,7 +4,8 @@ import helloController from "./controllers/hello-controller.js";
 import userController   from "./controllers/user-controller.js";
 import tuitsController from "./controllers/tuits-controller.js";
 import mongoose from "mongoose";
-mongoose.connect('mongodb://root:password@localhost:27017/webdev?authSource=admin&w=1');
+mongoose.connect(process.env.MONGO_DB_LOCATION || 'mongodb://root:password@localhost:27017/webdev?authSource=admin&w=1');
+console.log(process.env.MONGO_DB_LOCATION);
 
 const app = express();
 app.use(cors());
